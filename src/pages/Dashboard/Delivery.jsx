@@ -13,99 +13,92 @@ const Delivery = () => {
         questions you'd like to include in the FAQ, feel free to provide them,
         and I can help you organize and refine them.
       </p>
-      <div className="grid mt-6 grid-cols-2  ">
+      <div className="grid mt-6 grid-cols-2 gap-6  ">
         <div className=" ">
           <label className="text-xl font-semibold">Delivery Process</label>
-          <div className="flex  text-center mt-2">
-            <div className="border p-3 border-purple-200 ">
-              <h2>01</h2>
+          <div className="grid grid-cols-12 items-center border w-full mt-2">
+            <div className="border-r-2 col-span-1 h-full border-purple-200 ">
+              <h2 className="ml-2 mt-2">01</h2>
             </div>
-            <div className="border p-3 border-purple-200  ">
-              <h2>Topic</h2>
+            <div className="border-r-2 col-span-2 h-full border-purple-200  ">
+              <h2 className="mt-2 ml-2">Topic</h2>
             </div>
-            <div className="relative ">
-              <input
-                className="border p-3 border-purple-200"
-                type="text"
-                name=""
-                placeholder=""
-                id=""
-              />
-              <div className="absolute -right-0 top-0 cursor-pointer">
-                <Icon className="text-5xl" icon="ph:plus-fill" />
-              </div>
-            </div>
+            <input
+              className=" col-span-8"
+              type="text"
+              name=""
+              placeholder=""
+              id=""
+            />
+            <Icon className="text-5xl col-span-1" icon="ph:plus-fill" />
           </div>
 
-          <div className="flex  text-center mt-6">
-            <div className="border p-3 border-purple-200 ">
-              <h2>01</h2>
+          <div className="grid grid-cols-12 border items-center mt-6">
+            <div className="border-r-2 col-span-1 h-full border-purple-200 ">
+              <h2 className="mt-2 ml-2">01</h2>
             </div>
-            <div className="border p-3 border-purple-200  ">
-              <h2>Topic</h2>
+            <div className="border-r-2 col-span-2 h-full border-purple-200  ">
+              <h2 className="mt-2 ml-2">Topic</h2>
             </div>
-            <div className="relative ">
-              <input
-                className="border p-3 border-purple-200"
-                type="text"
-                name=""
-                placeholder="Confirm Orders"
-                id=""
-              />
-              <div className="absolute -right-0 top-0 cursor-pointer">
-                <Icon className="text-5xl" icon="material-symbols:delete" />
-              </div>
-            </div>
+            <input
+              className="col-span-8 ml-2"
+              type="text"
+              name=""
+              placeholder=""
+              id=""
+              required
+            />
+            <Icon
+              className="text-5xl col-span-1"
+              icon="material-symbols:delete"
+            />
           </div>
         </div>
 
         <div className="w-full ">
           <label className="text-xl font-semibold">Return Condition </label>
-          <div className="flex text-center mt-2">
-            <div className="border border-purple-200 p-3">
-              <h2>01</h2>
+          <label className="text-xl font-semibold">Delivery Process</label>
+          <div className="grid grid-cols-12 items-center border w-full mt-2">
+            <div className="border-r-2 col-span-1 h-full border-purple-200 ">
+              <h2 className="ml-2 mt-2">01</h2>
             </div>
-            <div className="border border-purple-200 p-3">
-              <h2>Topic</h2>
+            <div className="border-r-2 col-span-2 h-full border-purple-200  ">
+              <h2 className="mt-2 ml-2">Topic</h2>
             </div>
-            <div className=" relative ">
-              <input
-                className="border p-3 border-purple-200"
-                type="text"
-                name=""
-                placeholder=""
-                id=""
-              />
-              <div className="absolute -right-1 top-0 cursor-pointer">
-                <Icon className="text-5xl" icon="ph:plus-fill" />
-              </div>
-            </div>
+            <input
+              className=" col-span-8"
+              type="text"
+              name=""
+              placeholder=""
+              id=""
+            />
+            <Icon className="text-5xl col-span-1" icon="ph:plus-fill" />
           </div>
 
-          <div className="flex mt-6 text-center">
-            <div className="border border-purple-200 p-3">
-              <h2>01</h2>
+          <div className="grid grid-cols-12 border items-center mt-6">
+            <div className="border-r-2 col-span-1 h-full border-purple-200 ">
+              <h2 className="mt-2 ml-2">01</h2>
             </div>
-            <div className="border border-purple-200 p-3">
-              <h2>Topic</h2>
+            <div className="border-r-2 col-span-2 h-full border-purple-200  ">
+              <h2 className="mt-2 ml-2">Topic</h2>
             </div>
-            <div className=" relative ">
-              <input
-                className="border p-3 border-purple-200"
-                type="text"
-                name=""
-                placeholder="Damage Product, Date over issue"
-                id=""
-              />
-              <div className="absolute -right-1 top-0 cursor-pointer">
-                <Icon className="text-5xl" icon="material-symbols:delete" />
-              </div>
-            </div>
+            <input
+              className="col-span-8 ml-2"
+              type="text"
+              name=""
+              placeholder=""
+              id=""
+              required
+            />
+            <Icon
+              className="text-5xl col-span-1"
+              icon="material-symbols:delete"
+            />
           </div>
         </div>
       </div>
-      <div className="text-end  mt-4 ">
-        <button className=" bg-[#282B35] p-2 w-28 text-[#F5F5F5]">
+      <div className="text-end rounded-lg mt-4 ">
+        <button className=" bg-[#282B35] rounded-lg  p-2 w-28 text-[#F5F5F5]">
           Submit
         </button>
       </div>
