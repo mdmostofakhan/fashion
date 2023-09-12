@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* logo font  */
+.logoFont {
+    font-family: 'Gorditas', cursive;
+}
+
+/* hover home card  */
+.CardHoverItem {
+    transition: .3s ease-in-out;
+}
+.customHomeCardHover:hover .CardHoverItem {
+    background-color: #03384D;
+    padding: 20px 0;
+}
+
+/* active Route  */
+.active{
+    color: red;
+    border-bottom: 2px solid white;
+    padding-bottom: 8px;
+}
+
+.nabLinkStyle li .active{
+    color: white;
+    border: none;
+    background-color: #3A97B0;
+}
+
+/* banner swipper indicator */
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+
+    bottom: 60px !important;
+    left: 140px !important;
+    width: 200px !important;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+    /* width: 30px !important; */
+    /* height: 20px !important; */
+    background-color: white;
+    border-radius: 50px;
+}
+.swiper-pagination-bullet-active {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50px;
+}
+:root {
+    --swiper-theme-color: #fff !important;
+}
+
+
+/* single cart details img gallery slider */
+.image-gallery-image{
+    width: 100%;
+    height: 302px;
+    margin-bottom: 50px;
+    transition: .3s;
+}
+.image-gallery-image:hover{
+    transform: scale(1.6);
+}
+.image-gallery-left-nav {
+    display: none;
+}
+.image-gallery-right-nav {
+    display: none !important;
+}
+
+.image-gallery-thumbnails-container{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.image-gallery-thumbnails-container button{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.image-gallery-thumbnail:hover {
+    outline: none;
+    border: 2px solid #000 !important;
+}
+.image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
+    outline: none;
+    border: 2px solid black !important;
+}
+

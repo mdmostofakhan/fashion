@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co/phRjbsT/img1.png",
+    "title": "Beautiful Sunset",
+    "price": "290",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Majestic Mountains",
+    "price": "300",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/kyr6mV3/img3.png",
+    "title": "Serene Beach",
+    "price": "250",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/myJwC5V/img4.png",
+    "title": "Enchanting Forest",
+    "price": "150",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Urban Skylines",
+    "price": "450",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Historic Architecture",
+    "price": "299",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 7,
+    "image": "https://i.ibb.co/myJwC5V/img4.png",
+    "title": "Vibrant City Life",
+    "price": "370",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 8,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Tranquil Waters",
+    "price": "120",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 9,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Rural Landscapes",
+    "price": "450",
+    "description": "Fitted long Strappy Shoes"
+  },
+  {
+    "id": 10,
+    "image": "https://i.ibb.co/ckgs4Dv/img2.png",
+    "title": "Aerial Adventure",
+    "price": "233",
+    "description": "Fitted long Strappy Shoes"
+  }
+]
