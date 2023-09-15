@@ -6,18 +6,83 @@ import ProductCouter from '../ProductCouter/ProductCouter';
 import { Link } from 'react-router-dom';
 import { Fade } from 'react-awesome-reveal';
 import { toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { addToCartProducts, addToDb, deleteCartProduct, getStoredCart, removeFromDb } from '../../utilities/fakedb';
+import AddedCartProducts from './AddedCartProducts';
 
 const CartPageSection = () => {
     const user = true;
 
-    const [quantity, setQuantity] = useState(1);
+    let foundProducts = [];
+    const [products, setProducts] = useState([]);
+    // const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState(null);
+    const [productIsCheck, setProductIsCheck] = useState(false);
 
-    let priceItems = 200;
+    // let priceItems = 200;
+    // useEffect(() => {
+    //     setPrice(quantity * priceItems)
+    // }, [quantity])
+
+
+    const itemsData = useSelector((state) => {
+        // console.log(state.items.data)
+        return state.items.data;
+    });
+
     useEffect(() => {
-        setPrice(quantity * priceItems)
-    }, [quantity])
+        const storedCart = getStoredCart();
+        // console.log(storedCart)
 
+        if (itemsData) {
+            for (const id in storedCart) {
+                const savedCart = itemsData?.find(item => item.id == id)
+                if (savedCart) {
+                    if (!Object.isExtensible(savedCart)) {
+                        // Make the object extensible
+                        Object.preventExtensions(savedCart);
+                    }
+                    let quantityItem = storedCart[id]
+
+                    const updatedObject = {
+                        ...savedCart,
+                        quantity: quantityItem,
+                    };
+
+
+                    // console.log(updatedObject)
+
+                    // const fieldName = "quantityIt";
+                    // savedCart[fieldName] = quantityItem;
+
+                    // const cartItem = savedCart.quantity = quantityItem
+                    // console.log(savedCart.quantity = quantityItem)
+                    // foundProducts = [...foundProducts, savedCart]
+                    foundProducts.push(updatedObject)
+                }
+            }
+        }
+        setProducts(foundProducts)
+        addToCartProducts(foundProducts)
+    }, [products])
+
+    // console.log(products)
+    let subTotal = 0;
+    let totalQuantity = 0;
+    let total = 0;
+    const vat = 5;
+    let delivery = 100;
+    for(const product of products){
+
+        let quantity = product.quantity;
+        totalQuantity += quantity
+        let quantityPrice = quantity * parseFloat(product.price)
+        subTotal = subTotal + quantityPrice
+        let vatPrice = (subTotal * vat) / 100
+        total = (subTotal + vatPrice + delivery)
+        console.log(vatPrice)
+    }
+    // console.log(subTotal)
 
 
     // toastify 
@@ -25,100 +90,84 @@ const CartPageSection = () => {
         style: {
             backgroundColor: '#0C4E67',
             color: 'white'
+            
         },
-        className: "bg-black",
+        className: "bg-red-600",
     });
     const handleDelete = () => {
         if (user) {
             notify();
         }
     }
-    
-    
+
+
+    const handleProductChecked = () => {
+        setProductIsCheck(!productIsCheck)
+    }
+
+    const handleAllDelete = () => {
+        if(productIsCheck){
+            deleteCartProduct()
+            setProductIsCheck(!productIsCheck)
+            notify();
+        }
+    }
 
     return (
         <>
             <Fade>
                 <div className='mx-5'>
                     <div className='container mx-auto my-20'>
-                        <div class="grid grid-rows-3 lg:grid-flow-col gap-8 xl:mx-0 lg:mx-5 md:mx-5">
-                            <div class="lg:col-span-2 md:col-span-2 border p-5">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-5 cursor-pointer">
-                                        <input type="checkbox" for='selectAll' className="text-xlappearance-none indeterminate:bg-gray-300 rounded-lg border-4 border-black w-8 h-8" />
-                                        <span id='selectAll' className=" text-2xl font-semibold">Select all</span>
-
-                                    </div>
-                                    <div>
-                                        <Icon onClick={handleDelete} icon="fluent-mdl2:delete" className='text-3xl cursor-pointer text-red-600' />
-                                    </div>
-                                </div>
+                        {/* all select  */}
+                        <div className='border p-5 flex justify-between'>
+                            <div className="flex items-center gap-5 ">
+                                <input onClick={() => handleProductChecked()} checked={productIsCheck ? true : false} type="checkbox" id='selectAll' className="cursor-pointer text-xlappearance-none indeterminate:bg-gray-300 rounded-lg border-4 border-black w-8 h-8" />
+                                <label for='selectAll' className="cursor-pointer text-2xl font-semibold">{productIsCheck ? 'Not Seletct' : 'Select all'}</label>
                             </div>
-                            <div class="row-span-2 lg:col-span-2 md:col-span-2 col-span-1 border">
-                                <div className='flex md:flex-wrap flex-wrap justify-between flex-row items-center gap-10 p-5'>
-                                    <div className='flex items-center gap-5'>
-                                        <div className="flex items-center gap-5 cursor-pointer">
-                                            <input type="checkbox" for='selectOne' className="text-xlappearance-none indeterminate:bg-gray-300 rounded-lg border-4 border-black w-8 h-8" />
-                                        </div>
-                                        <div className='w-48 p-3'>
-                                            <img className='w-full' src={CartImg} alt="" />
-                                        </div>
-                                        <div className='space-y-3'>
-                                            <h2 className='text-3xl font-semibold'>Nike Air Force 1</h2>
-                                            <p>Fitted Long Strappy Shoes</p>
-                                            <div className='flex items-center justify-between'>
-                                                <Rating
-                                                    readonly
-                                                    placeholderRating={4.5}
-                                                    emptySymbol={<Icon icon="ic:baseline-star-half" />}
-                                                    placeholderSymbol={<Icon icon="ic:baseline-star" />}
-                                                    fullSymbol={<Icon icon="ic:baseline-star" />}
-                                                    className='text-2xl text-[#40F223]'
-                                                ></Rating>
-                                                <span>7.5k Ratings</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='flex justify-center items-center lg:w-auto md:w-48 '>
-                                        <div>
-                                            <h2 className='text-5xl font-bold text-center mb-8'>{priceItems}$</h2>
-                                            <ProductCouter quantity={quantity} setQuantity={setQuantity}></ProductCouter>
-                                        </div>
-                                    </div>
-                                    <div className='md:ml-auto'>
-                                        <button onClick={handleDelete}><Icon icon="fluent-mdl2:delete" className='text-3xl text-red-600' /></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row-span-3 col-span-1 border">
-                                <h3 className='text-2xl text-center font-bold py-4'>Summery</h3>
-                                <div className="divider m-0"></div>
-                                <ul>
-                                    <li className='flex justify-between py-2 px-6'>
-                                        <span className='text-xl font-medium'>Sub Total</span>
-                                        <span className='text-xl font-medium'>00.00$</span>
-                                    </li>
-                                    <div className="divider m-0"></div>
-                                    <li className='flex justify-between py-2 px-6'>
-                                        <span className='text-xl font-medium'>Vat</span>
-                                        <span className='text-xl font-medium'>00.00$</span>
-                                    </li>
-                                    <div className="divider m-0"></div>
-                                    <li className='flex justify-between py-2 px-6'>
-                                        <span className='text-xl font-medium'>Delivery Charge</span>
-                                        <span className='text-xl font-medium'>00.00$</span>
-                                    </li>
-                                    <div className="divider m-0"></div>
-                                    <li className='flex justify-between py-2 px-6'>
-                                        <span className='text-xl font-bold'>Total</span>
-                                        <span className='text-xl font-bold'>{price}$</span>
-                                    </li>
-                                </ul>
+                            <div onClick={() => handleAllDelete()} title='Delete' className='cursor-pointer'>
+                                <Icon className='text-3xl text-red-600' icon="fluent-mdl2:delete" />
                             </div>
                         </div>
+                        {/*  select product  */}
+                        {
+                            products?.map((item, index) => <AddedCartProducts key={item.id} item={item} productIsCheck={productIsCheck} />)
+
+                        }
+
+                        {/* summery  */}
+                        <div className='mt-16'>
+                            <table className='border w-full'>
+                                <tr>
+                                    <th className='p-5 text-2xl' colSpan={2}>Summary</th>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td className='border p-5 text-lg font-semibold'>Sub Total</td>
+                                        <td className='border p-5 text-lg font-semibold text-end'>{subTotal.toFixed(2)}৳</td>
+                                    </tr>
+                                    <tr>
+                                        <td className='border p-5 text-lg font-semibold'>Quantity</td>
+                                        <td className='border p-5 text-lg font-semibold text-end'>{totalQuantity}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className='border p-5 text-lg font-semibold'>Vat</td>
+                                        <td className='border p-5 text-lg font-semibold text-end'>{vat}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td className='border p-5 text-lg font-semibold'>Delivery Charge</td>
+                                        <td className='border p-5 text-lg font-semibold text-end'>{delivery}৳</td>
+                                    </tr>
+                                    <tr>
+                                        <td className='border p-5 text-lg font-semibold'>Total</td>
+                                        <td className='border p-5 text-lg font-semibold text-end'>{total.toFixed(2)}৳</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <div className='flex justify-center gap-5 mt-20'>
                             <Link to='/women' className='btn rounded-none lg:w-52 h-14 text-xl bg-transparent border-2 hover:border-[#3B95B0] hover:text-[#3B95B0] hover:bg-transparent border-black normal-case'>Return Shop</Link>
-                            <Link to='/productPurchasePage' className='btn rounded-none lg:w-52 h-14 text-xl border-0 bg-[#0C4E67] hover:bg-[#3B95B0] text-white normal-case'>Check Out</Link>
+                            <Link to='/checkOut' className='btn rounded-none lg:w-52 h-14 text-xl border-0 bg-[#0C4E67] hover:bg-[#3B95B0] text-white normal-case'>Check Out</Link>
                         </div>
                     </div>
                 </div>

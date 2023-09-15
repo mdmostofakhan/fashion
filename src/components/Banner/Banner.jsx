@@ -7,10 +7,12 @@ import HoverKidsTopItems from "../HoverCategories/HoverKidsTopItems/HoverKidsTop
 import BannerWomen from "./BannerWomen/BannerWomen";
 import BannerMan from "./BannerMan/BannerMan";
 import BannerKids from "./BannerKids/BannerKids";
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Banner = () => {
+
   const location = useLocation();
+
   return (
     <>
       <div>

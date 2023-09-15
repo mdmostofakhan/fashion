@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import toast from 'react-hot-toast';
 import { Fade } from "react-awesome-reveal";
+import { addToDb } from "../../../utilities/fakedb";
 
 
 
@@ -19,6 +20,7 @@ const WomenPageNewItems = () => {
   //   getIems().then((data) => setItems(data));
   // }, []);
   const itemsData = useSelector((state) => {
+    // console.log(state.item)
     return state.items;
   });
 
@@ -30,11 +32,31 @@ const WomenPageNewItems = () => {
     },
     className: "bg-black",
   });
-  const handleAddToCart = () => {
+  const handleAddToCart = (item) => {
+    console.log(item.id)
+    addToDb(item.id)
     if (user) {
       notify();
     }
   }
+
+  /* const handleAddToCart = (item) => {
+    let womenCartProducts = getCartProducuts();
+    console.log(womenCartProducts)
+    addToDb(item.id)q
+
+    // womenCartProducts?.forEach(womenCartItem => )
+    for(const womenCartItem of womenCartProducts){
+      if(!womenCartItem.id == item.id){
+        
+        addToCartProducts([...womenCartProducts, item])
+      }
+    }
+
+    if (user) {
+      notify();
+    }
+  } */
 
   return (
     <div>
@@ -52,7 +74,7 @@ const WomenPageNewItems = () => {
                   <Link key={index} to={`/product-details/${item.id}`}>
                     <PageItem item={item}></PageItem>
                   </Link>
-                  <Link to={user ? '' : '/login'} onClick={handleAddToCart} className="btn mx-5 my-5 bg-[#3B95B0] text-white hover:bg-[#0C4E67]">Add to Cart</Link>
+                  <Link to={user ? '' : '/login'} onClick={() => handleAddToCart(item)} className="btn mx-5 my-5 bg-[#3B95B0] text-white hover:bg-[#0C4E67]">Add to Cart</Link>
 
                 </div>
               </Fade>

@@ -10,8 +10,6 @@ const Home = () => {
     return (
         // home page
         <div>
-             <Link to="/dashboard">Dashboard</Link>
-
             <Helmet><title>UrbanUtopia | Home</title></Helmet>
             <div className='container mx-auto'>
                 <div className='flex justify-center items-center my-10'>

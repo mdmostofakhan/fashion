@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import toast from 'react-hot-toast';
 import { Fade } from "react-awesome-reveal";
+import { addToDb } from "../../../utilities/fakedb";
 
 const MenPageNewItems = () => {
 
@@ -29,6 +30,7 @@ const MenPageNewItems = () => {
     className: "bg-black",
   });
   const handleAddToCart = () => {
+    addToDb(item.id)
     if (user) {
       notify();
     }

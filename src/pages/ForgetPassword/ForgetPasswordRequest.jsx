@@ -12,7 +12,7 @@ const ForgetPasswordRequest = () => {
     // from handle 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        
+        console.log(data)
     };
 
 

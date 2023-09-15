@@ -2,6 +2,7 @@ import React from "react";
 
 const Category = ({ category }) => {
   const { id, image, title } = category;
+  // console.log(image);
   return (
     <div className="w-full bg-base-100">
       <figure className="">
@@ -15,6 +16,8 @@ const Category = ({ category }) => {
         <h2 className="text-xl font-medium">{title}</h2>
       </div>
     </div>
+    
+
   );
 };
 

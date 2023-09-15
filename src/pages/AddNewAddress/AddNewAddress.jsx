@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Children } from 'react';
 import DownloadMobile from '../../components/DownloadMobile/DownloadMobile';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { useForm } from "react-hook-form";
 import { Fade } from 'react-awesome-reveal';
+import { toast } from 'react-hot-toast';
 
 
 const AddNewAddress = () => {
@@ -15,11 +16,21 @@ const AddNewAddress = () => {
 
     }
 
+    const notify = () => toast.success('Your Address Added Successfull', {
+        style: {
+            backgroundColor: '#0C4E67',
+            color: 'white'
+        },
+        className: "bg-black",
+    });
 
     // from handle 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        
+        console.log(data)
+        notify();
+        reset();
+        return <Navigate to="/login" replace={true} />
     };
 
 
@@ -65,25 +76,8 @@ const AddNewAddress = () => {
                                         </label>
                                         <input type="text" {...register("city")} required placeholder="Your City" className="input placeholder-black input-bordered h-16 rounded-none border-black text-black text-xl" />
                                     </div>
-                                    {/* <div className="form-control relative">
-                                        <label className="label px-0">
-                                            <span className="label-text text-xl font-medium">Province*</span>
-                                        </label>
-                                        <input type="text" required placeholder="Province" className="placeholder-black input h-16 rounded-none input-bordered border-black text-black text-xl placeholder-dots" />
-                                        <div className='absolute right-5 top-16'><Icon icon="mdi:eye-off" className='text-3xl' /></div>
-                                    </div>
-                                    <div className="form-control">
-                                        <label className="label px-0">
-                                            <span className="label-text text-xl font-medium">Land Mark*</span>
-                                        </label>
-                                        <input type="text" required placeholder="Lank Mark" className="input placeholder-black input-bordered h-16 rounded-none border-black text-black text-xl" />
-                                    </div> */}
-
                                     <div className="form-control mt-10 lg:ml-auto">
                                         <input type="submit" value='Save' className='btn px-16 bg-[#0C4E67] text-white mt-4 normal-case text-[16px] h-16 rounded-none hover:bg-[#3B95B0]' />
-                                    </div>
-                                    <div>
-                                        <Link to='/adedAddress'>Next</Link>
                                     </div>
                                 </form>
                             </div>

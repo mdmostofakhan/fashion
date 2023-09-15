@@ -13,6 +13,7 @@ const KidsPageCategories = () => {
     return state.categories;
   });
 
+  // console.log(categoriesData);
   return (
     <div className="container w-[80%] mx-auto">
       <div className="text-center py-20">

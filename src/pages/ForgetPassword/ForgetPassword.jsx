@@ -14,6 +14,7 @@ const ForgetPassword = () => {
     // from handle 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        console.log(data)
 
 
         // password confirm validation

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import toast from 'react-hot-toast';
 import { Fade } from "react-awesome-reveal";
+import { addToDb } from "../../../utilities/fakedb";
 
 // import Category from "../../Category/Category";
 
@@ -16,6 +17,7 @@ const KidsPageNewItems = () => {
   // const [items, setItems] = useState([]);
   const [quantity, setQuantity] = useState(4);
 
+  // console.log(items);
   const itemsData = useSelector((state) => {
     return state.items;
   });
@@ -29,6 +31,7 @@ const KidsPageNewItems = () => {
     className: "bg-black",
   });
   const handleAddToCart = () => {
+    addToDb(item.id)
     if (user) {
       notify();
     }

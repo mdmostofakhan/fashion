@@ -20,16 +20,15 @@ import ProductPurchasePage from "../components/ProductPurchasePage/ProductPurcha
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import ForgetPasswordRequest from "../pages/ForgetPassword/ForgetPasswordRequest";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../Layout/Dashboard/Dashboard";
-
-import Orders from "../pages/Dashboard/Orders";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import DashboardDetails from "../pages/Dashboard/DashboardDetails";
+import Orders from "../pages/Dashboard/Orders";
 import Products from "../pages/Dashboard/Products";
 import AddProducts from "../pages/Dashboard/AddProducts";
 import Delivery from "../pages/Dashboard/Delivery";
 import ContactDetails from "../pages/Dashboard/ContactDetails";
 import Faq from "../pages/Dashboard/Faq";
-import LogOut from "../pages/Dashboard/LogOut";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +53,10 @@ const router = createBrowserRouter([
         element: <Kids />,
       },
       {
+        path: "userProfile",
+        element: <UserProfile/>,
+      },
+      {
         path: "orderDone",
         element: <OrderDone />,
       },
@@ -62,28 +65,24 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/signUp",
-        element: <SignUp />,
+        path: '/signUp',
+        element: <SignUp />
       },
       {
-        path: "/user/forget-password/:id",
-        element: <ForgetPassword />,
+        path: '/user/forget-password/:id',
+        element: <ForgetPassword/>
       },
       {
-        path: "/user/forgetPasswordRequest",
-        element: <ForgetPasswordRequest />,
+        path: '/user/forgetPasswordRequest',
+        element: <ForgetPasswordRequest/>
       },
       {
         path: "/cart",
-        element: (
-          <PrivateRoute>
-            <Cart />
-          </PrivateRoute>
-        ),
+        element: <PrivateRoute><Cart /></PrivateRoute>,
       },
       {
-        path: "/productPurchasePage",
-        element: <ProductPurchasePage></ProductPurchasePage>,
+        path: '/checkOut',
+        element: <ProductPurchasePage></ProductPurchasePage>
       },
       {
         path: "/product-details/:_id",
@@ -95,12 +94,12 @@ const router = createBrowserRouter([
       },
       { path: "/payment/fail", element: <PaymentFail /> },
       {
-        path: "/addNewAddress",
-        element: <AddNewAddress></AddNewAddress>,
+        path: '/addNewAddress',
+        element: <AddNewAddress></AddNewAddress>
       },
       {
-        path: "/adedAddress",
-        element: <AdedAdress></AdedAdress>,
+        path: '/adedAddress',
+        element: <AdedAdress></AdedAdress>
       },
       {
         path: "/payment/cancel",
@@ -119,6 +118,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
+        element: <DashboardDetails></DashboardDetails>,
+      },
+      {
+        path: "dashboardDetails",
         element: <DashboardDetails></DashboardDetails>,
       },
       {
