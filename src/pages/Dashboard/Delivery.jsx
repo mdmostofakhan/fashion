@@ -13,7 +13,7 @@ const Delivery = () => {
         questions you'd like to include in the FAQ, feel free to provide them,
         and I can help you organize and refine them.
       </p>
-      <div className="grid mt-6 grid-cols-2 gap-6  ">
+      <div className="grid mt-6 md:grid-cols-2 sm:grid-cols-1 gap-6  ">
         <div className=" ">
           <label className="text-xl font-semibold">Delivery Process</label>
           <div className="grid grid-cols-12 items-center border w-full mt-2">

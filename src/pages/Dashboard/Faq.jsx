@@ -13,10 +13,10 @@ const Faq = () => {
         questions you'd like to include in the FAQ, feel free to provide them,
         and I can help you organize and refine them.
       </p>
-      <div className="grid grid-cols-2  gap-6 mt-6">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-6 mt-6">
         <div className="">
             <label className="text-xl font-semibold">Delivery Process</label>
-          <div className="grid  grid-cols-12 items-center mt-4 border  w-full">
+          <div className="grid grid-cols-12 items-center mt-4 border  w-full">
             <div className="col-span-1 h-full border-r-2">
             <h1 className=" text-xl  mt-2 ml-2">o1</h1>
             </div>
