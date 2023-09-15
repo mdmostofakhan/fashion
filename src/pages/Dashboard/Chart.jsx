@@ -57,7 +57,7 @@ const Chart = () => {
 
   return (
 
-    <div className="border border-green-600 rounded-2xl ">
+    <div className="border border-purple-200 rounded-2xl ">
       <div className="flex justify-between lg:px-4 mt-4">
         <p className="text-2xl font-semibold">Claims Over the Years</p>
         <div>
