@@ -29,7 +29,7 @@ const DashboardDetails = () => {
         <Chart></Chart>
         </div>
         <div className="w-full">
-        <Chart></Chart>
+        <ReChart></ReChart>
         </div>
       </div>
     </div>

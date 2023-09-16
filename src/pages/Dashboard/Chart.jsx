@@ -58,8 +58,8 @@ const Chart = () => {
   return (
 
     <div className="border border-purple-200 rounded-2xl ">
-      <div className="flex justify-between lg:px-4 mt-4">
-        <p className="text-2xl font-semibold">Claims Over the Years</p>
+      <div className="flex justify-between mx-12 mt-4">
+        <p className="text-2xl font-semibold">Claims  </p>
         <div>
           <p className="text-[#5041BC] flex gap-2 text-xl font-semibold items-center">
             <Icon icon="icon-park-outline:dot" />  Total Sales</p>

@@ -6,7 +6,7 @@ const AddProducts = () => {
     <div className=" w-11/12 mx-auto">
       <h1 className="text-2xl font-semibold my-6">Add Products</h1>
       <div className="grid md:grid-cols-2  grid-cols-1 w-full gap-8">
-      <div className="w-full">
+        <div className="w-full">
           <div className="w-full">
             <label className="font-semibold">Product Name</label> <br />
             <input
@@ -15,8 +15,7 @@ const AddProducts = () => {
               name=""
               placeholder="Core i7 5th gen Leptop"
               id=""
-            /> 
-           
+            />
           </div>
           <div className="flex w-full gap-6 mt-6">
             <div className="w-1/2">
@@ -98,11 +97,10 @@ const AddProducts = () => {
             />
           </div>
 
-          <div className="mt-6 ">
+          <div className="mt-6 relative">
             <label className="font-semibold ">Create Size Guide</label> <br />
             <table className="border w-full mt-2">
               <tr className="grid grid-cols-4">
-              
                 <input
                   type="text"
                   placeholder="Size"
@@ -118,22 +116,19 @@ const AddProducts = () => {
                   placeholder="Waist"
                   className="border  border-purple-200 p-3"
                 />
-                
-                  <input
-                    type="text"
-                    placeholder="Waist"
-                    className="border   border-purple-200  p-3"
-                  />
-                  
-                    <Icon className="ml-auto text-5xl" icon="ph:plus-fill" />
-                
-                
+
+                <input
+                  type="text"
+                  placeholder="Waist"
+                  className="border   border-purple-200  p-3"
+                />
+                <div className="absolute -right-1 top-8">
+                  <Icon className="ml-auto text-5xl" icon="ph:plus-fill" />
+                </div>
               </tr>
             </table>
           </div>
         </div>
-
-
 
         {/* secon ............ */}
         <div className="w-full">
@@ -182,11 +177,11 @@ const AddProducts = () => {
               />
             </div>
           </div>
-          <div className="flex w-full gap-6 mt-6">
+          <div className="flex w-full  gap-6 mt-6">
             <div className="w-1/2">
               <label className=" font-semibold">Discount Amount</label> <br />
               <input
-                className="border w-full border-purple-200 p-3 mt-3"
+                className="border w-full text-center border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
                 placeholder="125 ৳"
@@ -197,7 +192,7 @@ const AddProducts = () => {
               <label className=" font-semibold">New Discount Price</label>{" "}
               <br />
               <input
-                className="border w-full border-purple-200 p-3 mt-3"
+                className="border w-full text-center border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
                 placeholder="1125 ৳"
@@ -209,7 +204,7 @@ const AddProducts = () => {
             <div className="w-1/2">
               <label className=" font-semibold">Inside Area </label> <br />
               <input
-                className="border w-full border-purple-200 p-3 mt-3"
+                className="border text-center w-full border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
                 placeholder="60 ৳ "
@@ -219,7 +214,7 @@ const AddProducts = () => {
             <div className="w-1/2">
               <label className=" font-semibold">Out Side Area</label> <br />
               <input
-                className="border w-full border-purple-200 p-3 mt-3"
+                className="border text-center w-full border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
                 placeholder="100 ৳ "
@@ -267,7 +262,14 @@ const AddProducts = () => {
       </div>
       <div className="mt-6">
         <label className=" font-semibold">Product Name</label> <br />
-        <textarea className="border p-4 w-full" placeholder="message" name="most" id="" cols="30" rows="10"></textarea>
+        <textarea
+          className="border p-4 w-full"
+          placeholder="message"
+          name="most"
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
       </div>
 
       <div className="text-end  mt-4 ">
@@ -280,4 +282,3 @@ const AddProducts = () => {
 };
 
 export default AddProducts;
-
