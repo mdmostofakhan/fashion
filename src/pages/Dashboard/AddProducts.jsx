@@ -223,7 +223,7 @@ const AddProducts = () => {
             </div>
           </div>
           <div className="flex w-full gap-6 mt-6">
-            <div className="w-1/2">
+            <div className="w-1/2 relative">
               <label className=" font-semibold">Start Date</label> <br />
               <input
                 className="border w-full border-purple-200 p-3 mt-2"
@@ -232,8 +232,11 @@ const AddProducts = () => {
                 placeholder="12.00 am 29 July 2023  "
                 id=""
               />
+              <div className="absolute -right-0 top-10 ">
+              <Icon className=" text-4xl" icon="clarity:date-solid" />
             </div>
-            <div className="w-1/2">
+            </div>
+            <div className="w-1/2 relative">
               <label className=" font-semibold">Ending Date</label> <br />
               <input
                 className="border w-full border-purple-200 p-3 mt-2"
@@ -242,6 +245,9 @@ const AddProducts = () => {
                 placeholder="12.00 am 07 Aug 2023 "
                 id=""
               />
+              <div className="absolute -right-0 top-10 ">
+              <Icon className=" text-4xl" icon="clarity:date-solid" />
+            </div>
             </div>
           </div>
 

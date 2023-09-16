@@ -97,7 +97,7 @@ const Delivery = () => {
           </div>
         </div>
       </div>
-      <div className="text-end rounded-lg mt-4 ">
+      <div className="text-end  mt-12 ">
         <button className=" bg-[#282B35] rounded-lg  p-2 w-28 text-[#F5F5F5]">
           Submit
         </button>
