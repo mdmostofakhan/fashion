@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 
 const AddProducts = () => {
+ const [regularAmount, setRegularAmount] = useState()
+ const [discountPercentage, setDiscountPercentage] = useState()
+ const [newDiscountPrice, setNewDiscountPrice] = useState(0)
+ const [newDiscountAmount, setNewDiscountAmount] = useState(0) 
+ 
+const handleAmountChange = (e) => {
+  setRegularAmount(e.target.value);
+}
+
+const handleDiscountChange = (e) => {
+  setDiscountPercentage(e.target.value);
+}
+
+
+  useEffect(() => {
+     if(!isNaN(regularAmount) && !isNaN(discountPercentage)) {
+        const amountPrice = parseFloat(regularAmount) * parseFloat(discountPercentage) / 100;
+        const discountPrice = parseFloat(regularAmount) - parseFloat(amountPrice);
+
+console.log(discountPrice, 'heloo', amountPrice)
+
+        setNewDiscountPrice(discountPrice.toFixed(2))
+        setNewDiscountAmount(amountPrice.toFixed(2))
+      }
+      else{
+        setNewDiscountPrice('')
+        setNewDiscountAmount('');
+      }
+     
+  },[regularAmount, discountPercentage])
+
   return (
     <div className=" w-11/12 mx-auto">
       <h1 className="text-2xl font-semibold my-6">Add Products</h1>
@@ -45,10 +76,12 @@ const AddProducts = () => {
               <br />
               <input
                 className="border w-full text-center border-purple-200 p-3 mt-3"
-                type="text"
-                name=""
+                type="number"
+                name="regularPrice"
                 placeholder="1250 ৳ "
-                id=""
+                onChange={handleAmountChange}
+               value={regularAmount}
+                id="number"
               />
             </div>
             <div className="w-1/2">
@@ -56,9 +89,11 @@ const AddProducts = () => {
               <br />
               <input
                 className="border w-full text-center  border-purple-200 p-3 mt-3"
-                type="text"
-                name=""
+                type="number"
+                name="disc"
                 placeholder="10%"
+               onChange={handleDiscountChange}
+                value={discountPercentage}
                 id=""
               />
             </div>
@@ -80,7 +115,7 @@ const AddProducts = () => {
                 className="border w-full text-center  border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
-                placeholder="Paid Delivery              "
+                placeholder="Paid Deliver"
                 id=""
               />
             </div>
@@ -182,8 +217,9 @@ const AddProducts = () => {
               <label className=" font-semibold">Discount Amount</label> <br />
               <input
                 className="border w-full text-center border-purple-200 p-3 mt-3"
-                type="text"
-                name=""
+                type="number"
+                name="discount"
+                value={newDiscountAmount}
                 placeholder="125 ৳"
                 id=""
               />
@@ -195,6 +231,7 @@ const AddProducts = () => {
                 className="border w-full text-center border-purple-200 p-3 mt-3"
                 type="text"
                 name=""
+                value={newDiscountPrice}
                 placeholder="1125 ৳"
                 id=""
               />
@@ -233,8 +270,8 @@ const AddProducts = () => {
                 id=""
               />
               <div className="absolute -right-0 top-10 ">
-              <Icon className=" text-4xl" icon="clarity:date-solid" />
-            </div>
+                <Icon className=" text-4xl" icon="clarity:date-solid" />
+              </div>
             </div>
             <div className="w-1/2 relative">
               <label className=" font-semibold">Ending Date</label> <br />
@@ -246,8 +283,8 @@ const AddProducts = () => {
                 id=""
               />
               <div className="absolute -right-0 top-10 ">
-              <Icon className=" text-4xl" icon="clarity:date-solid" />
-            </div>
+                <Icon className=" text-4xl" icon="clarity:date-solid" />
+              </div>
             </div>
           </div>
 
